@@ -1,1 +1,1 @@
-# SERP_system
+Welcome to SERP_System! This is a powerful Search Engine Results Page (SERP) system that allows you to retrieve and analyze search engine results for various queries. With SERP_System, you can gather valuable data and insights about search engine rankings, keyword performance, and competitor analysis.
