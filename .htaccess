@@ -1,0 +1,10 @@
+# Order Allow, Deny
+Allow from All
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    #RewriteBase /
+  
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+header set cache-control "no-cache"  

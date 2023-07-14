@@ -83,3 +83,24 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+
+/* constants */ 
+define('header_allow_origin', 'Access-Control-Allow-Origin: *');
+define('header_allow_headers', 'Access-Control-Allow-Headers: *');
+define('header_allow_methods', "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, PATCH");
+
+/* configs */
+define('BASE_URL', 'http://localhost/SERP_system/');
+define('TIME_ZONE', 'Asia/Kolkata');
+
+/* API */ 
+define('GOOGLE_SEARCH_API_KEY', 'AIzaSyD4Z4rB1GJ-fiZqNCVgC3gK2AgQTejTIVc');
+define('GOOGLE_CSE_CX', 'd1a497fe28e53450f');
+
+/* tables */
+define('TABLE_ACCESS',          'access');
+define('TABLE_KEYS',            'keys');
+define('TABLE_LIMITS',          'limits');
+define('TABLE_LOGS',            'logs');
