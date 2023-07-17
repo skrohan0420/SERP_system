@@ -11,22 +11,19 @@ class Search extends Common {
         Header(header_allow_methods); //method allowed
     }
 
-
-    private function search($domain,$url,$key_words){
-
-    }
-
-
-
-
-
-    public function test(){
-        $data = [
-            "status" => true,
-            "message" => 'opop'
-        ];
+    public function custom_search(){
+        $gl = !empty($this->input->get('country'))? $this->input->get('country') :"us";
+        $hl = !empty($this->input->get('language'))? $this->input->get('language') :"en";
+        $query = $this->input->get('keyWords');
+        $data = $this->search($query,$hl,$gl);      
         $this->response($data, 200);
     }
+
+
+
+
+
+
 
 
 }

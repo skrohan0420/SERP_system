@@ -19,6 +19,33 @@ class Common extends CI_Controller{
     }
     
 
+    public function search($query,$hl,$gl){
+        $pages = !empty($pages) ? $pages: 1;
+        $gl    = !empty($gl)    ? $gl   : "us";
+        $hl    = !empty($hl)    ? $hl   : "en";
+        $query = !empty($query) ? $query : "null"; 
+        $data  = []; 
+
+        $apiurl = sprintf('https://www.googleapis.com/customsearch/v1?q=%s&cx=%s&key=%s&hl=%s&gl=%s&start=%d', $query, GOOGLE_CSE_CX, GOOGLE_SEARCH_API_KEY, $hl, $gl, (PAGE_LIMIT - 1) * 10 + 1);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiurl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'cURL error: ' . curl_error($ch);
+            // Handle the error here if needed.
+        }
+        curl_close($ch);
+        $obj = json_decode($json);
+        array_push($data, $obj);
+        
+        return !empty($obj) ? $obj : null;
+    }
+
+
+
+
+
 
 }
 

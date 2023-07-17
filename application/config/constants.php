@@ -94,9 +94,10 @@ define('header_allow_methods', "Access-Control-Allow-Methods: GET, POST, OPTIONS
 /* configs */
 define('BASE_URL', 'http://localhost/SERP_system/');
 define('TIME_ZONE', 'Asia/Kolkata');
+define('PAGE_LIMIT', 1);
 
 /* API */ 
-define('GOOGLE_SEARCH_API_KEY', 'AIzaSyD4Z4rB1GJ-fiZqNCVgC3gK2AgQTejTIVc');
+define('GOOGLE_SEARCH_API_KEY', 'AIzaSyAZglr5SdZKr5R63TlpZelUSG9wIrndZ9Q');
 define('GOOGLE_CSE_CX', 'd1a497fe28e53450f');
 
 /* tables */

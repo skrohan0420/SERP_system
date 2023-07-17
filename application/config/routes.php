@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-
+$route['search'] = 'Load/single_search';
 
 
 
