@@ -23,6 +23,44 @@ class Load extends CI_Controller{
         $this->load->view('inc/footer_link', $data['footer']);
     }
 
+    public function rankings(){
+        $data_header = [
+            'header_link' => [
+                'title' => 'rankings'
+            ],
+            'sidebar' => [
+                'rankings' => true
+            ],
+            'header' => []
+        ];
+        $data_footer = [
+            'footer' => []
+        ];
+        $this->headers($data_header);
+        $this->load->view('rankings');
+        $this->load->view('inc/js/rankings_js');
+        $this->footers($data_footer);
+    }
+
+    public function add_domain(){
+        $data_header = [
+            'header_link' => [
+                'title' => 'add domain'
+            ],
+            'sidebar' => [
+                'add_domain' => true
+            ],
+            'header' => []
+        ];
+        $data_footer = [
+            'footer' => []
+        ];
+        $this->headers($data_header);
+        $this->load->view('add_domain');
+        $this->load->view('inc/js/add_domain_js');
+        $this->footers($data_footer);
+    }
+
     public function single_search(){
         $data_header = [
             'header_link' => [

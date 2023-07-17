@@ -92,12 +92,12 @@ define('header_allow_headers', 'Access-Control-Allow-Headers: *');
 define('header_allow_methods', "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, PATCH");
 
 /* configs */
-define('BASE_URL', 'http://localhost/SERP_system/');
+define('BASE_URL', 'https://www.v-xplore.com/dev/rohan/serp-system/');
 define('TIME_ZONE', 'Asia/Kolkata');
 define('PAGE_LIMIT', 1);
 
 /* API */ 
-define('GOOGLE_SEARCH_API_KEY', 'AIzaSyAZglr5SdZKr5R63TlpZelUSG9wIrndZ9Q');
+define('GOOGLE_SEARCH_API_KEY', 'AIzaSyBlR9bPaewBYA-Jvcqz3ydkN-I8TI6HNEk');
 define('GOOGLE_CSE_CX', 'd1a497fe28e53450f');
 
 /* tables */

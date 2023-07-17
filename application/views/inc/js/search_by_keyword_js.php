@@ -1,6 +1,11 @@
 <script>
+
     $('#dataTableResultCon').hide()
-  
+
+
+
+
+
 
 
     $('#serachDomain').on('click', function (e) {
@@ -18,7 +23,7 @@
         } else {
             async function processKeywords(keyWords, domain) {
                 try {
-                    for(const [index, item] of keyWords.entries()) {
+                    for (const [index, item] of keyWords.entries()) {
                         await new Promise((resolve, reject) => {
                             $.ajax({
                                 url: "<?= base_url('Search/custom_search')?>",
@@ -34,24 +39,18 @@
                                     $('#serachDomain').html(`SEARCH`);
                                     let results = resp.items;
                                     // console.log(results);
-                                    $.each(results, function(index2, item2){
-                                        if(item2.formattedUrl == domain){
+                                    $.each(results, function (index2, item2) {
+
+                                        if (item2.formattedUrl == domain) {
                                             $('#dataTableResultCon').show()
                                             let output = `<tr>
-                                                        <td>${item}</td>
-                                                        <td>${index2}</td>
-                                                        </tr>`
+                                                            <td>${item}</td>
+                                                            <td>${index2}</td>
+                                                            </tr>`
                                             $('#table_result').append(output)
                                             $('#dataTableResult').DataTable();
+
                                         }
-                                        // else{
-                                        //     let output = `<tr>
-                                        //                     <td>${i}</td>
-                                        //                     <td>${item}</td>
-                                        //                     <td>"not found"</td>
-                                        //                 </tr>`
-                                        //     $('#table_result').append(output)
-                                        // }
                                     })
                                     resolve(); // Resolve the promise when the AJAX call is successful.
                                 },
@@ -62,14 +61,18 @@
                             });
                         });
                     }
-                }catch (err){
+                } catch (err) {
                     console.error("Error occurred:", err);
                 }
             }
             processKeywords(keyWords, domain);
         }
     })
-   
+
+
+
+
+
 
 
 </script>

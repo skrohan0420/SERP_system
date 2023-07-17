@@ -20,13 +20,26 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>" style="background-color:<?=@$search ? '#f8f9fc': ''?>">
+                <a class="nav-link" href="<?= base_url('search') ?>" style="background-color:<?=@$search ? '#f8f9fc': ''?>">
                     <i class="fa fa-search" style="color:<?=@$search ? '#224abe': ''?>"></i>
                     <span style="color:<?=@$search ? '#224abe': ''?>">search</span>
                 </a>
             </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('add/domain') ?>" style="background-color:<?=@$add_domain ? '#f8f9fc': ''?>">
+                    <i class="fa fa-plus" style="color:<?=@$add_domain ? '#224abe': ''?>"></i>
+                    <span style="color:<?=@$add_domain ? '#224abe': ''?>">add domain</span>
+                </a>
+            </li>
 
-          
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('rankings') ?>" style="background-color:<?=@$rankings ? '#f8f9fc': ''?>">
+                    <i class="fa fa-bar-chart" style="color:<?=@$rankings ? '#224abe': ''?>"></i>
+                    <span style="color:<?=@$rankings ? '#224abe': ''?>">rankings</span>
+                </a>
+            </li>
+
 
 
 
