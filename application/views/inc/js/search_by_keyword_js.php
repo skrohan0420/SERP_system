@@ -10,11 +10,19 @@
 
     $('#serachDomain').on('click', function (e) {
         $('#table_result').html('')
-        $('#dataTableResult').DataTable();
         e.preventDefault();
         let domain = $('#domain').val()
         let keyWords = $('#keyWords').val()
         keyWords = keyWords.split('\n')
+
+       
+
+
+        let parsedURL = new URL(domain);
+        let hostname = parsedURL.hostname;
+        let domain_name = hostname.replace(/^www\./i, '');
+
+        // console.log(domain_name)
 
         if (domain.length == 0) {
             toast('Not a valid domain', 'center')
@@ -38,20 +46,30 @@
                                 success: function (resp) {
                                     $('#serachDomain').html(`SEARCH`);
                                     let results = resp.items;
-                                    // console.log(results);
+                                   
+                                    let isInResults = false;
                                     $.each(results, function (index2, item2) {
-
-                                        if (item2.formattedUrl == domain) {
+                                        if (item2.formattedUrl.includes(domain)) {
+                                            isInResults = !isInResults
                                             $('#dataTableResultCon').show()
                                             let output = `<tr>
                                                             <td>${item}</td>
-                                                            <td>${index2}</td>
+                                                            <td align="center">${index2+1}</td>
                                                             </tr>`
                                             $('#table_result').append(output)
                                             $('#dataTableResult').DataTable();
-
+                                            return false;
                                         }
-                                    })
+                                    })  
+                                    // if(!isInResults){
+                                    //     let output = `<tr>
+                                    //                     <td>${item}</td>
+                                    //                     <td align="center">not found</td>
+                                    //                     </tr>`
+                                    //     $('#table_result').append(output)
+                                    //     $('#dataTableResult').DataTable();
+                                    //     return false;
+                                    // }
                                     resolve(); // Resolve the promise when the AJAX call is successful.
                                 },
                                 error: function (xhr, status, error) {
@@ -65,7 +83,7 @@
                     console.error("Error occurred:", err);
                 }
             }
-            processKeywords(keyWords, domain);
+            processKeywords(keyWords, domain_name);
         }
     })
 

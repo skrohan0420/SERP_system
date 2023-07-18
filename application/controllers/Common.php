@@ -11,6 +11,21 @@ class Common extends CI_Controller{
         Header(header_allow_methods); //method allowed
     }
 
+    private $prefix_data = [
+		KEY_DOMAIN  => UID_PREFIX_DOMAIN,
+	];
+
+
+    private function uid(){
+        return strtoupper(bin2hex(openssl_random_pseudo_bytes(4)));
+    }
+
+	public function generate_uid($purpose = null){
+          return (array_key_exists($purpose, $this->prefix_data)) ? $this->prefix_data[$purpose] . $this->uid() . date('Ymd') : 0;
+	}
+
+
+
 
     public function response($data, $status){
         if(!empty($data) && !empty($status)){
@@ -42,7 +57,9 @@ class Common extends CI_Controller{
         return !empty($obj) ? $obj : null;
     }
 
-
+    public function innit_model($model){
+        $this->load->model($model);
+    }
 
 
 

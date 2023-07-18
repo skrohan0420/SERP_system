@@ -7,7 +7,7 @@
 		</div>
 		<div class="card-body">
 			<div class="vndrfrm mx-5">
-				<form action="#" method="post" autocomplete="off">
+				<form  autocomplete="off">
 					<div class="form-group">
 						<input type="text" name="domain" class="form-control" placeholder="Domain url" id="domain">
 					</div>                  
@@ -351,13 +351,10 @@
                     </div>
 
 					<div class="text-center">
-						<button class="btn btn-success btn-md" id="serachDomain" style="width: 200px;">ADD</button>
+						<button class="btn btn-success btn-md" id="addDomain" style="width: 200px;">ADD</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
-   
-
 </div>

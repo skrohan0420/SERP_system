@@ -95,9 +95,15 @@ define('header_allow_methods', "Access-Control-Allow-Methods: GET, POST, OPTIONS
 define('BASE_URL', 'https://www.v-xplore.com/dev/rohan/serp-system/');
 define('TIME_ZONE', 'Asia/Kolkata');
 define('PAGE_LIMIT', 1);
+define('DATE_FORMAT', 'Y-m-d');
+define('DATE_TIME_FORMAT', 'Y-m-d H:i:s');
+
+/* MODELS */ 
+
+define('MODEL_DOMAIN', 'Domain_model');
 
 /* API */ 
-define('GOOGLE_SEARCH_API_KEY', 'AIzaSyBlR9bPaewBYA-Jvcqz3ydkN-I8TI6HNEk');
+define('GOOGLE_SEARCH_API_KEY', 'AIzaSyAs9DMOLLwRZjf3WgfIZ8atRurlkm4xoBU');
 define('GOOGLE_CSE_CX', 'd1a497fe28e53450f');
 
 /* tables */
@@ -105,3 +111,11 @@ define('TABLE_ACCESS',          'access');
 define('TABLE_KEYS',            'keys');
 define('TABLE_LIMITS',          'limits');
 define('TABLE_LOGS',            'logs');
+
+
+/* KEYs */
+define('KEY_DOMAIN','domain');
+    
+
+/* UID_PREFIX */ 
+define('UID_PREFIX_DOMAIN', 'DO');

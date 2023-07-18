@@ -35,7 +35,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('rankings') ?>" style="background-color:<?=@$rankings ? '#f8f9fc': ''?>">
-                    <i class="fa fa-bar-chart" style="color:<?=@$rankings ? '#224abe': ''?>"></i>
+                    <i class="fa fa-list" style="color:<?=@$rankings ? '#224abe': ''?>"></i>
                     <span style="color:<?=@$rankings ? '#224abe': ''?>">rankings</span>
                 </a>
             </li>
