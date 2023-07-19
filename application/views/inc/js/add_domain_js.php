@@ -7,10 +7,7 @@
         let language = $('#language').val()
         let country  = $('#country').val()
 
-        keyWords = keyWords.split('\n')
-        let parsedURL = new URL(domain);
-        let hostname = parsedURL.hostname;
-        let domain_name = hostname.replace(/^www\./i, '');
+      
 
 
         if (domain.length == 0) {
@@ -18,6 +15,11 @@
         } else if (keyWords.length == 0) {
             toast('Please enter atleast one key word', 'center')
         } else {
+            keyWords = keyWords.split('\n')
+            let parsedURL = new URL(domain);
+            let hostname = parsedURL.hostname;
+            let domain_name = hostname.replace(/^www\./i, '');
+
             $.ajax({
                 url: "<?= base_url('Domain/add_domain')?>",
                 type: "POST",
@@ -33,10 +35,16 @@
                 },
                 success : function(resp){
                     $('#addDomain').html(`ADD`);
+                    if(resp.status){
+                        toast(resp.message, 'center')
+                        if(resp.isInserted){
+                            $('#domain').val('')
+                            $('#keyWords').val('')
+                        }
+                    }
                 }
             })
         }
-
     })
 
 </script>
