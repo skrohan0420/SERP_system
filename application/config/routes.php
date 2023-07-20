@@ -54,10 +54,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['search']      = 'Load/single_search';
-$route['add/domain']  = 'Load/add_domain';
-$route['rankings']    = 'Load/rankings';
-
+$route['search']                   = 'Load/single_search';
+$route['add/domain']               = 'Load/add_domain';
+$route['rankings']                 = 'Load/rankings';
+$route['rankings/keyword/(:any)']  = 'Load/key_words/$1';
 
 
 // 404 redirect

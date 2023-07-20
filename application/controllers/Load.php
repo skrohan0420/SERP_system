@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+include_once(APPPATH."controllers/Common.php");
 
 
-class Load extends CI_Controller{
+class Load extends Common{
     function __construct(){
         parent::__construct();
         date_default_timezone_set(TIME_ZONE);
@@ -81,6 +82,34 @@ class Load extends CI_Controller{
 
     }
 
+    public function key_words(){
+        $this->innit_model(MODEL_DOMAIN);
+        $doamin_id = $this->uri->segment(3);
+        $doamin_data = $this->Domain_model->get_domain_byId($doamin_id);
+
+        $data_header = [
+            'header_link' => [
+                'title' => 'keywords rankings'
+            ],
+            'sidebar' => [
+                'search' => true
+            ],
+            'header' => []
+        ];
+        $data = [
+            "domain_id" => $doamin_id,
+            "doamin_data" => $doamin_data
+        ];
+        $data_footer = [
+            'footer' => []
+        ];
+        $this->load->view('inc/header_link', $data_header['header_link']);
+        $this->load->view('inc/header');
+        $this->load->view('key_word_ranks',$data);
+        $this->load->view('inc/js/key_word_ranks_js',$data);
+        $this->footers($data_footer);
+
+    }
 
 
 

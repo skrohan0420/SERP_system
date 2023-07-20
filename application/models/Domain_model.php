@@ -45,9 +45,50 @@ class Domain_model extends Common_model {
         return !empty($data) ? $data : null ; 
     }
 
+    public function get_domain_byId($domain_id){
+        $data = $this->db
+                    ->select('*')
+                    ->from(TABLE_DOMAIN)
+                    ->where('uid', $domain_id)
+                    ->get()
+                    ->result_array();
 
-   
+        return !empty($data) ? $data[0] : null ; 
+    }
 
+    public function get_all_keyWords($domain_id){
+        $data = $data = $this->db
+                            ->select('*')
+                            ->from(TABLE_KEY_WORDS)
+                            ->where('domain_id', $domain_id)
+                            ->get()
+                            ->result_array();
+
+        return !empty($data) ? $data : null ; 
+
+    }
+
+
+    public function get_current_rank($key_word_id){
+        if(!empty($key_word_id)){
+            $rank = $this->db
+                        ->select('*')
+                        ->from(TABLE_RANKINGS)
+                        ->where('key_word_id', $key_word_id)
+                        ->order_by('created_at', 'desc')
+                        ->limit(1)
+                        ->get()
+                        ->result_array();
+            return !empty($rank) ? $rank[0] : null ;
+        }
+        return 0;
+
+    }  
+
+    
+    public function get_previous_rank($key_word_id){
+        return 0;
+    }
    
 
     
